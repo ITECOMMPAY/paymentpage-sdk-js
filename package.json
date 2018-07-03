@@ -1,0 +1,17 @@
+{
+  "name": "ecp-signer",
+  "version": "1.0.0",
+  "description": "Ecommpay signer package",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap tests/*.js"
+  },
+  "author": {
+    "name": "Zhukov Roman",
+    "email": "r.zhukov@it.ecommpay.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "tap": "^12.0.1"
+  }
+}
