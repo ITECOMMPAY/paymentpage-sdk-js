@@ -1,17 +1,30 @@
 {
-  "name": "ecp-signer",
-  "version": "1.0.0",
-  "description": "Ecommpay signer package",
+  "name": "ecommpay",
+  "version": "0.1.0",
+  "description": "Ecommpay Javascript package",
   "main": "index.js",
   "scripts": {
-    "test": "tap tests/*.js"
+    "lint": "eslint .",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["lcov"]
   },
   "author": {
     "name": "Zhukov Roman",
     "email": "r.zhukov@it.ecommpay.com"
   },
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhukovra/ecp-signer-js.git"
+  },
+  "license": "MIT",
   "devDependencies": {
-    "tap": "^12.0.1"
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "jest": "^23.2.0"
   }
 }
