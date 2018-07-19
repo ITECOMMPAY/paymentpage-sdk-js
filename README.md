@@ -11,18 +11,20 @@ It is package that will help you with generating payment URL according to
 
 ### How to use?
 
+#### Get payment page URL
+
 1. Install the package (with your package manager):
-```
+```shell
 npm install ecommpay
 yarn add ecommpay
 ```
 
 2. Require somewhere in your code, set parameters and get the URL:
-```
-const ECP = require('ecommpay');
+```javascript
+const { Payment } = require('ecommpay');
 
 // create ECP object with your account ID and secret salt
-const e = new ECP('112', 'my_secret');
+const e = new Payment('112', 'my_secret');
 
 // set payment details 
 e.paymentAmount = 1000;
@@ -37,4 +39,17 @@ const url = e.getUrl();
 
 Now your can render payment `url` somewhere on your checkout page.
 
-That's all.
+#### Receive callback from Ecommpay
+
+Example with [Express](http://expressjs.com):
+```javascript
+const { Callback } = require('ecommpay');
+
+app.post('/payment/callback', function(req, res) {
+  const callback = new Callback(req.body);
+  if (callback.isPaymentSuccess()) {
+    const paymentId = callback.getPaymentId();
+    // here is your code for success payment
+  }
+});
+```
