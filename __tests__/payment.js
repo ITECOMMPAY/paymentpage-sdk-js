@@ -1,6 +1,11 @@
-const ECP = require('../index');
+const Payment = require('../src/payment');
 
-const e = new ECP(121, 'secret', 'http://baseurl');
+test('Object', () => {
+  const e = new Payment(121, 'secret', { cashierPredefinedAmounts: [1, 2], mode: 'cachier' }, 'http://baseurl');
+  expect(e.getQueryString()).toBe('project_id=121&cashier_predefined_amounts=1,2&mode=cachier');
+});
+
+const e = new Payment(121, 'secret', {}, 'http://baseurl');
 
 test('Test ECP.getQueryString', () => {
   expect(e.getQueryString()).toBe('project_id=121');

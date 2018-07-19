@@ -9,8 +9,15 @@
     "test:coverage": "jest --coverage"
   },
   "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/data/",
+      "<rootDir>/node_modules/",
+      "<rootDir/index.js"
+    ],
     "collectCoverage": true,
-    "coverageReporters": ["lcov"]
+    "coverageReporters": [
+      "lcov"
+    ]
   },
   "author": {
     "name": "Zhukov Roman",
