@@ -101,7 +101,10 @@ class Payment {
    * @returns {string} Query string
    */
   getQueryString() {
-    return Object.keys(this.params).map(key => `${key}=${this.params[key]}`).join('&');
+    return Object
+      .keys(this.params)
+      .map(key => `${key}=${encodeURIComponent(this.params[key])}`)
+      .join('&');
   }
 
   /**

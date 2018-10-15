@@ -2,7 +2,7 @@ const Payment = require('../src/payment');
 
 test('Object', () => {
   const e = new Payment(121, 'secret', { cashierPredefinedAmounts: [1, 2], mode: 'cachier' }, 'http://baseurl');
-  expect(e.getQueryString()).toBe('project_id=121&cashier_predefined_amounts=1,2&mode=cachier');
+  expect(e.getQueryString()).toBe('project_id=121&cashier_predefined_amounts=1%2C2&mode=cachier');
 });
 
 const e = new Payment(121, 'secret', {}, 'http://baseurl');
