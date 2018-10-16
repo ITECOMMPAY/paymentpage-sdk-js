@@ -1,4 +1,4 @@
-function reducer(obj, prefix = '', level = 1) {
+function reducer(obj, prefix = '') {
   const ordered = {};
 
   Object.keys(obj).sort().forEach((key) => {
@@ -6,14 +6,11 @@ function reducer(obj, prefix = '', level = 1) {
   });
 
   return Object.entries(ordered).reduce((acc, [prop, value]) => {
-    if (level === 3) {
-      return `${acc}${prefix}:${prop};`;
-    }
     if (typeof value === 'object') {
       if (Array.isArray(value)) {
-        return acc + reducer(value, prop, level + 1);
+        return acc + reducer(value, prop);
       }
-      return acc + reducer(value, prefix ? `${prefix}:${prop}` : prop, level + 1);
+      return acc + reducer(value, prefix ? `${prefix}:${prop}` : prop);
     }
     // eslint-disable-next-line no-param-reassign
     if (typeof value === typeof true) value = value ? 1 : 0;
