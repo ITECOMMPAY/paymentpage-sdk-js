@@ -26,6 +26,7 @@ test('Test ECP setters', () => {
   e.cashierMaxValue = 500;
   e.cashierMinValue = 100;
   e.cashierPredefinedAmounts = [10, 20, 30];
+  e.cashVoucherData = { voucher: 'ваучер' };
   e.closeOnMissclick = true;
   e.cssModalWrap = 'modal-popup';
   e.customerId = 'customer_341';
@@ -83,6 +84,7 @@ test('Test ECP setters', () => {
     cashier_max_value: 500,
     cashier_min_value: 100,
     cashier_predefined_amounts: '10,20,30',
+    cash_voucher_data: 'eyJ2b3VjaGVyIjoi0LLQsNGD0YfQtdGAIn0=',
     close_on_missclick: true,
     css_modal_wrap: 'modal-popup',
     customer_city: 'Moscow',
