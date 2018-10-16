@@ -127,6 +127,15 @@ class Payment {
   set cashierPredefinedAmounts(values) {
     this.params.cashier_predefined_amounts = Array.isArray(values) ? values.join(',') : values;
   }
+
+  /**
+   * Set cach voucher data according to FZ-54 (for Orange Data provider)
+   *
+   * @param {Object} data
+   */
+  set cashVoucherData(data) {
+    this.params.cash_voucher_data = Buffer.from(JSON.stringify(data)).toString('base64');
+  }
 }
 
 module.exports = Payment;
