@@ -16,6 +16,11 @@ test('Test ECP.getUrl', () => {
   expect(trimmedUrl).toBe(`http://baseurl/payment?${e.getQueryString()}`);
 });
 
+test('Test signature is urlencoded', () => {
+  const url = e.getUrl();
+  expect(url.split('=').pop().match(/[ +=,;]/)).toBeNull();
+});
+
 test('Test ECP setters', () => {
   e.accountToken = 1;
   e.bestBefore = 1;
