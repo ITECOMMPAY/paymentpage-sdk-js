@@ -1,6 +1,6 @@
 {
   "name": "ecommpay",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Ecommpay Javascript package",
   "main": "index.js",
   "scripts": {

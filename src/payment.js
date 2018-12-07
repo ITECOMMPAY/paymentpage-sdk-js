@@ -116,7 +116,7 @@ class Payment {
     const signature = signer(this.params, this.salt);
     const params = this.getQueryString();
 
-    return `${this.baseURI}/payment?${params}&signature=${signature}`;
+    return `${this.baseURI}/payment?${params}&signature=${encodeURIComponent(signature)}`;
   }
 
   /**
