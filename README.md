@@ -1,8 +1,8 @@
 # EcommPay Javascript package
 
-[![Build Status](https://travis-ci.org/zhukovra/ecp-signer-js.svg?branch=master)](https://travis-ci.org/zhukovra/ecp-signer-js)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/427914fe0481b93241da/test_coverage)](https://codeclimate.com/github/zhukovra/ecp-signer-js/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/427914fe0481b93241da/maintainability)](https://codeclimate.com/github/zhukovra/ecp-signer-js/maintainability)
+[![Build Status](https://travis-ci.org/ITECOMMPAY/paymentpage-sdk-js.svg?branch=master)](https://travis-ci.org/ITECOMMPAY/paymentpage-sdk-js)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f92c4b71c7ebacfa2a32/test_coverage)](https://codeclimate.com/github/ITECOMMPAY/paymentpage-sdk-js/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f92c4b71c7ebacfa2a32/maintainability)](https://codeclimate.com/github/ITECOMMPAY/paymentpage-sdk-js/maintainability)
 
 ### What is it?
 
