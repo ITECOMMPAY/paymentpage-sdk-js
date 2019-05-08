@@ -46,7 +46,7 @@ Example with [Express](http://expressjs.com):
 const { Callback } = require('ecommpay');
 
 app.post('/payment/callback', function(req, res) {
-  const callback = new Callback(req.body);
+  const callback = new Callback('secret', req.body);
   if (callback.isPaymentSuccess()) {
     const paymentId = callback.getPaymentId();
     // here is your code for success payment
