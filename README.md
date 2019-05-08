@@ -53,3 +53,4 @@ app.post('/payment/callback', function(req, res) {
   }
 });
 ```
+Note that `Callback` constructor throws Error if signature isn't valid.
