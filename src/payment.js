@@ -91,6 +91,7 @@ class Payment {
           // eslint-disable-next-line no-param-reassign
           object.params[prop.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase()] = val;
         }
+        return true;
       },
     });
   }
