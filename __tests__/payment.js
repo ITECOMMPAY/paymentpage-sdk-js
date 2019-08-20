@@ -2,13 +2,13 @@ const Payment = require('../src/payment');
 
 test('Object', () => {
   const e = new Payment(121, 'secret', { cashierPredefinedAmounts: [1, 2], mode: 'cachier' }, 'http://baseurl');
-  expect(e.getQueryString()).toBe('project_id=121&cashier_predefined_amounts=1%2C2&mode=cachier');
+  expect(e.getQueryString()).toBe('project_id=121&interface_type=%7B%22id%22%3A22%7D&cashier_predefined_amounts=1%2C2&mode=cachier');
 });
 
 const e = new Payment(121, 'secret', {}, 'http://baseurl');
 
 test('Test ECP.getQueryString', () => {
-  expect(e.getQueryString()).toBe('project_id=121');
+  expect(e.getQueryString()).toBe('project_id=121&interface_type=%7B%22id%22%3A22%7D');
 });
 
 test('Test ECP.getUrl', () => {
@@ -102,6 +102,7 @@ test('Test ECP setters', () => {
     customer_phone: '1234567',
     customer_ssn: '123',
     customer_state: 'M obl',
+    interface_type: '{"id":22}',
     force_acs_new_window: true,
     force_payment_method: 'card',
     language_code: 'RU',
