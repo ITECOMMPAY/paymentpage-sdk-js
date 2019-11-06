@@ -69,6 +69,7 @@ class Payment {
     this.baseURI = url;
     this.params = {
       project_id: projectId,
+      interface_type: JSON.stringify({ id: 22 }),
     };
 
     // set up params via constructor
