@@ -53,6 +53,7 @@ const signer = require('./signer');
  * @property {number} terminalId
  * @property {string} baseurl
  * @property {string} paymentExtraParam
+ * @property {string} frameMode
  */
 class Payment {
   /**

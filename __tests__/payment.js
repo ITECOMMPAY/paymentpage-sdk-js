@@ -73,6 +73,7 @@ test('Test ECP setters', () => {
   e.terminalId = '54';
   e.baseurl = 'domain.com';
   e.paymentExtraParam = 1;
+  e.frameMode = 'popup';
 
   const obj = {
     account_token: 1,
@@ -128,6 +129,7 @@ test('Test ECP setters', () => {
     region_code: 'ru',
     target_element: 'pay_button_id',
     terminal_id: '54',
+    frame_mode: 'popup',
   };
   expect(e.params).toEqual(obj);
 });

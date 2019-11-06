@@ -15,4 +15,5 @@ module.exports.data = {
     cvv: '123',
     save: true,
   },
+  frame_mode: 'popup',
 };
