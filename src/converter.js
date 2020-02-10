@@ -8,6 +8,10 @@ function reducer(obj, prefix = '', ignored = []) {
   });
 
   return Object.entries(ordered).reduce((acc, [prop, value]) => {
+    if (value === null) {
+      // eslint-disable-next-line no-param-reassign
+      value = '';
+    }
     if (typeof value === 'object') {
       return acc + reducer(value, prefix ? `${prefix}:${prop}` : prop, ignored);
     }
