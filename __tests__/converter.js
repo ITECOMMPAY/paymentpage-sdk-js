@@ -1,6 +1,7 @@
 const converter = require('../src/converter');
 
 const obj = {
+  0: null,
   a: {
     b: 1,
     c: 2,
@@ -22,5 +23,5 @@ const obj = {
 };
 
 test('Test converting object to string for signature', () => {
-  expect(converter(obj)).toBe('a:b:1;a:c:2;d:0;e:0:4;e:1:5;f:0:g;f:1:h:7;f:1:i:k:8');
+  expect(converter(obj)).toBe('0:;a:b:1;a:c:2;d:0;e:0:4;e:1:5;f:0:g;f:1:h:7;f:1:i:k:8');
 });
