@@ -9,9 +9,6 @@ function reducer(obj, prefix = '', ignored = []) {
 
   return Object.entries(ordered).reduce((acc, [prop, value]) => {
     if (typeof value === 'object') {
-      if (Array.isArray(value)) {
-        return acc + reducer(value, prop, ignored);
-      }
       return acc + reducer(value, prefix ? `${prefix}:${prop}` : prop, ignored);
     }
     // eslint-disable-next-line no-param-reassign
