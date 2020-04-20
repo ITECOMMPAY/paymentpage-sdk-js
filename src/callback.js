@@ -9,6 +9,7 @@ class Callback {
     const obj = typeof data === 'string' ? JSON.parse(data) : Object.assign({}, data);
     this.secret = secret;
     this.callback = obj;
+    // remove signature from callback before we check valid
     this.removeSignature(this.callback);
     if (!this.isValid()) {
       throw new Error('Invalid signature');
@@ -16,7 +17,7 @@ class Callback {
   }
 
   /**
-   * Remove signature from callback
+   * Remove signature from callback for signing it again and compare with origin signature
    * @param {Object} obj
    */
   removeSignature(obj) {
@@ -25,6 +26,7 @@ class Callback {
         this.removeSignature(obj[key]);
       }
       if (key === 'signature') {
+        // remember origin signature
         this.signature = obj.signature;
         // eslint-disable-next-line no-param-reassign
         delete obj.signature;
