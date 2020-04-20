@@ -9,12 +9,27 @@ class Callback {
     const obj = typeof data === 'string' ? JSON.parse(data) : Object.assign({}, data);
     this.secret = secret;
     this.callback = obj;
-    this.signature = obj.signature;
-    // remove signature from callback before we check valid
-    delete this.callback.signature;
+    this.removeSignature(this.callback);
     if (!this.isValid()) {
       throw new Error('Invalid signature');
     }
+  }
+
+  /**
+   * Remove signature from callback
+   * @param {Object} obj
+   */
+  removeSignature(obj) {
+    Object.keys(obj).forEach((key) => {
+      if (typeof obj[key] === 'object') {
+        this.removeSignature(obj[key]);
+      }
+      if (key === 'signature') {
+        this.signature = obj.signature;
+        // eslint-disable-next-line no-param-reassign
+        delete obj.signature;
+      }
+    });
   }
 
   /**
