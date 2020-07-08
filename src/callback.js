@@ -49,7 +49,7 @@ class Callback {
    * @returns {boolean}
    */
   isPaymentSuccess() {
-    return this.callback.hasOwnProperty('payment')
+    return Object.prototype.hasOwnProperty.call(this.callback, 'payment')
       && this.callback.payment.status === 'success';
   }
 
@@ -59,7 +59,7 @@ class Callback {
    * @returns {string}
    */
   getPaymentId() {
-    return this.callback.hasOwnProperty('payment')
+    return Object.prototype.hasOwnProperty.call(this.callback, 'payment')
       ? this.callback.payment.id
       : null;
   }
