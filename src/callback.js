@@ -49,7 +49,8 @@ class Callback {
    * @returns {boolean}
    */
   isPaymentSuccess() {
-    return this.callback.payment.status === 'success';
+    return this.callback.hasOwnProperty('payment')
+      && this.callback.payment.status === 'success';
   }
 
   /**
@@ -58,7 +59,9 @@ class Callback {
    * @returns {string}
    */
   getPaymentId() {
-    return this.callback.payment.id;
+    return this.callback.hasOwnProperty('payment')
+      ? this.callback.payment.id
+      : null;
   }
 }
 
