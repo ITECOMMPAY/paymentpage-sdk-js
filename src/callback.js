@@ -56,7 +56,7 @@ class Callback {
   /**
    * Returns payment ID
    *
-   * @returns {string}
+   * @returns {(string|null)}
    */
   getPaymentId() {
     return Object.prototype.hasOwnProperty.call(this.callback, 'payment')
