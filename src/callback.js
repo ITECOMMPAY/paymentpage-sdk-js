@@ -49,16 +49,19 @@ class Callback {
    * @returns {boolean}
    */
   isPaymentSuccess() {
-    return this.callback.payment.status === 'success';
+    return Object.prototype.hasOwnProperty.call(this.callback, 'payment')
+      && this.callback.payment.status === 'success';
   }
 
   /**
    * Returns payment ID
    *
-   * @returns {string}
+   * @returns {(string|null)}
    */
   getPaymentId() {
-    return this.callback.payment.id;
+    return Object.prototype.hasOwnProperty.call(this.callback, 'payment')
+      ? this.callback.payment.id
+      : null;
   }
 }
 
