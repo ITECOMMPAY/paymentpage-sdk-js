@@ -29,7 +29,7 @@ test('Constructor error', () => {
 });
 
 test('String in constructor', () => {
-  expect((new Callback(secret, JSON.stringify(data))).callback.payment.id).toBe('000048');
+  expect((new Callback(secret, JSON.stringify(data))).callback.payment.id).toBe('000049');
 });
 
 test('Callback.isPaymentSuccess', () => {
