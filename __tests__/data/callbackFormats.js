@@ -1,8 +1,8 @@
-module.exports.formats = [
-  {
+module.exports.formats = {
+  9: {
     general: {
       customer_id: 'David Klein',
-      project_id: 951,
+      project_id: 100,
       signature: '',
     },
     request: {
@@ -13,48 +13,23 @@ module.exports.formats = [
     token_created_at: '2019-10-18T08:10:36+0000',
     token_status: 'active',
   },
-  {
+  2: {
     general: {
-      project_id: '[2] projectId',
+      project_id: 100,
+      signature: '',
     },
     request: {
-      action: '[36] action',
-      errors: '[38] errors',
-      id: '[3] requestId',
-      status: '[37] status',
+      id: '426bf258cd',
+      status: 'success',
     },
-    customer: {
-      id: '[18] userLogin',
-    },
-    token_status: '[71] status',
-    token_created_at: '[70] created_at',
-    token: '[68] tokenString',
+    token: 'd44600b',
+    token_created_at: '2019-10-18T08:10:36+0000',
+    token_status: 'active',
   },
-  {
-    project_id: '[2] projectId',
-    recurring: {
-      id: '[100] id',
-      status: '[101] status',
-      type: '[102] type',
-      currency: '[107] currency',
-      exp_year: '[103] exp_year',
-      exp_month: '[104] exp_month',
-      period: '[105] period',
-      time: '[106] time',
-    },
-  },
-  {
-    redirectData: '[113] redirectData',
+  1: {
+    project_id: 100,
     payment: {
-      id: '[40] paymentId',
-    },
-  },
-  {
-    general: {
-      project_id: 951,
-    },
-    payment: {
-      id: 'checkSalePayout_2020',
+      id: '30338174',
       type: 'purchase',
       status: 'success',
       date: '2020-08-24T07:44:44+0000',
@@ -63,37 +38,37 @@ module.exports.formats = [
         amount: 1000,
         currency: 'RUB',
       },
-      description: 'Успешная оплата',
+      description: 'Успешная оплата по не 3ds-ой карте',
     },
     account: {
       number: '400002******1488',
-      token: 'f8c2c15af1eb3df89bf39e',
+      token: 'f8c2c15af1',
       type: 'visa',
-      id: 231664,
+      id: 100,
       card_holder: 'TOKEN TESTER',
       expiry_month: '05',
       expiry_year: '2025',
     },
     customer: {
       id: 'David Klein',
-      phone: '79607201210',
+      phone: '100',
     },
     decision: {
       message: 'Transaction has been checked by RCS',
     },
     operation: {
-      id: 9754253,
+      id: 100,
       type: 'sale',
       status: 'success',
       date: '2020-08-24T07:44:44+0000',
       created_date: '2020-08-24T07:44:41+0000',
-      request_id: 'a3d2c0827611-00009755',
+      request_id: 'a3d2c082761',
       sum_initial: {
-        amount: 1000,
+        amount: 100,
         currency: 'RUB',
       },
       sum_converted: {
-        amount: 1000,
+        amount: 100,
         currency: 'RUB',
       },
       code: '0',
@@ -101,7 +76,7 @@ module.exports.formats = [
       eci: '07',
       provider: {
         id: 3,
-        payment_id: '15982550832800',
+        payment_id: '159825508',
         auth_code: '563253',
         endpoint_id: 'test',
         date: '2020-08-24T07:44:44+0000',
@@ -109,4 +84,106 @@ module.exports.formats = [
     },
     signature: '',
   },
-];
+  161: {
+    sum_request: {
+      amount: 100,
+      currency: 'USD',
+    },
+    payment: {
+      cascading_with_redirect: false,
+      is_new_attempts_available: false,
+      attempts_timeout: 0,
+      status: 'success',
+      id: '100',
+      method: 'card',
+      date: '2020-08-24T11:53:51+0000',
+      result_code: '0',
+      result_message: 'Success',
+      split_with_redirect: false,
+      provider_id: 100,
+    },
+    rrn: '100',
+    AuthCode: '100',
+    account: {
+      number: '400002******1488',
+      token: '5cc73393381c',
+      type: 'visa',
+      card_holder: 'TEST USER',
+      expiry_month: '11',
+      expiry_year: '2022',
+    },
+    customer: {
+      id: '100',
+    },
+    request_id: '35e79897224cdc',
+    transaction: {
+      id: 100,
+      date: '2020-08-24T11:53:51+0000',
+      type: 'purchase',
+    },
+    sum_real: {
+      amount: 100,
+      currency: 'USD',
+    },
+    general: {
+      project_id: 100,
+      payment_id: '100',
+      signature: '',
+    },
+    description: '',
+    operations: [
+      {
+        id: 100,
+        type: 'sale',
+        status: 'success',
+        date: '2020-08-24T11:53:51+0000',
+        processing_time: '2020-08-24T11:53:50+0000',
+        request_id: '35e79897224cd',
+        sum: {
+          amount: 100,
+          currency: 'USD',
+        },
+        code: '0',
+        message: 'Success',
+      },
+    ],
+    return_url: 'https://pay.test.com/acs_callback',
+  },
+  69: {
+    redirectData: {
+      method: 'GET',
+      body: [],
+      encrypted: [],
+      url: 'https://pay.test.com/acs_callback',
+    },
+    payment: {
+      id: '100',
+    },
+    general: {
+      signature: '',
+    },
+  },
+  73: {
+    card: {
+      number: '400002******1488',
+      exp_month: 5,
+      exp_year: 2024,
+      holder: 'Test User',
+    },
+    general: {
+      project_id: 100,
+      signature: '',
+    },
+    request: {
+      id: '18c4b5a13d7',
+      action: 'tokenize',
+      status: 'success',
+    },
+    customer: {
+      id: '0c26aef6',
+    },
+    token: '759a1ac5',
+    token_status: 'active',
+    token_created_at: '2020-08-24T14:14:23+0000',
+  },
+};
