@@ -39,3 +39,7 @@ test('Callback.isPaymentSuccess', () => {
 test('Callback.getPaymentId', () => {
   expect(cb.getPaymentId()).toBe('000049');
 });
+
+test('Missing prototype extra payload in reseived data object', () => {
+  expect(Object.getPrototypeOf(cb.callback)).toBeNull();
+});

@@ -7,6 +7,7 @@ const signer = require('./signer');
 class Callback {
   constructor(secret, data) {
     const obj = typeof data === 'string' ? JSON.parse(data) : Object.assign({}, data);
+    Object.setPrototypeOf(obj, null);
     this.secret = secret;
     this.callback = obj;
     // remove signature from callback before we check valid
