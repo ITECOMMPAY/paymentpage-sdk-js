@@ -54,6 +54,8 @@ const signer = require('./signer');
  * @property {string} baseurl
  * @property {string} paymentExtraParam
  * @property {string} frameMode
+ * @property {string} validationURL
+ * @property {boolean} validationEnabled
  */
 class Payment {
   /**
@@ -67,6 +69,8 @@ class Payment {
   constructor(projectId, salt, obj = {}, url = 'https://paymentpage.ecommpay.com') {
     this.salt = salt;
     this.baseURI = url;
+    this.validationURL = 'https://sdk.ecommpay.com/v1/params/check';
+    this.validationEnabled = true;
     this.params = {
       project_id: projectId,
       interface_type: JSON.stringify({ id: 22 }),
@@ -119,7 +123,28 @@ class Payment {
     const signature = signer(this.params, this.salt);
     const params = this.getQueryString();
 
+    this.validate(params);
+
     return `${this.baseURI}/payment?${params}&signature=${encodeURIComponent(signature)}`;
+  }
+
+  /**
+   * Validate payment params before generate URL
+   *
+   * @param {string} paymentParams
+   */
+  validate(paymentParams) {
+    if (this.validationEnabled) {
+      // eslint-disable-next-line no-undef
+      const validationRequest = new XMLHttpRequest();
+      validationRequest.open('POST', `${this.validationURL}?${paymentParams}`, false);
+      validationRequest.send();
+
+      if (validationRequest.status !== 200) {
+        const validationErrors = JSON.parse(validationRequest.response).errors;
+        throw new Error(JSON.stringify(validationErrors));
+      }
+    }
   }
 
   /**
