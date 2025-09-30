@@ -24,7 +24,7 @@ test('Test signature is urlencoded', () => {
 test('Test ECP setters', () => {
   e.accountToken = 1;
   e.bestBefore = 1;
-  e.cardOperationType = 'sale';
+  e.operationType = 'sale';
   e.cashierDefaultMode = 'withdrawal';
   e.cashierForceMode = 'deposit';
   e.cashierManualInput = 1;
@@ -83,7 +83,7 @@ test('Test ECP setters', () => {
     billing_country: 'RU',
     billing_postal: '123',
     billing_region: 'M obl',
-    card_operation_type: 'sale',
+    operation_type: 'sale',
     cashier_default_mode: 'withdrawal',
     cashier_force_mode: 'deposit',
     cashier_manual_input: 1,
@@ -132,4 +132,20 @@ test('Test ECP setters', () => {
     frame_mode: 'popup',
   };
   expect(e.params).toEqual(obj);
+});
+
+test('Test ECP.getQueryString with operation type', () => {
+  const payment = new Payment(121, 'secret', {}, 'http://baseurl');
+
+  payment.operationType = 'auth';
+
+  expect(payment.getQueryString()).toBe('project_id=121&interface_type=%7B%22id%22%3A22%7D&operation_type=auth');
+});
+
+test('Test ECP.getQueryString with card operation type', () => {
+  const payment = new Payment(121, 'secret', {}, 'http://baseurl');
+
+  payment.cardOperationType = 'sale';
+
+  expect(payment.getQueryString()).toBe('project_id=121&interface_type=%7B%22id%22%3A22%7D&operation_type=sale');
 });

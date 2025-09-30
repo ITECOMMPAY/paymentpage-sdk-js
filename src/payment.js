@@ -6,7 +6,8 @@ const signer = require('./signer');
  *
  * @property {string} accountToken
  * @property {string} bestBefore
- * @property {string} cardOperationType
+ * @property {string} cardOperationType @deprecated Use {@link operationType} instead
+ * @property {string} operationType
  * @property {string} cashierDefaultMode
  * @property {string} cashierForceMode
  * @property {boolean} cashierManualInput
@@ -138,6 +139,12 @@ class Payment {
    */
   set cashVoucherData(data) {
     this.params.cash_voucher_data = Buffer.from(JSON.stringify(data)).toString('base64');
+  }
+
+  set cardOperationType(value) {
+    // eslint-disable-next-line no-console
+    console.warn('The property "cardOperationType" is deprecated and will be removed in a future version. Please use "operationType" instead.');
+    this.params.operation_type = value;
   }
 }
 
