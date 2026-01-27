@@ -149,13 +149,13 @@ class Payment {
    */
   set bookingInfo(data) {
     if (!data) {
-      throw new Error("bookingInfo is invalid or empty");
+      throw new Error('bookingInfo is invalid or empty');
     }
 
     const json = JSON.stringify(data);
 
     if (json === '' || json === '{}') {
-      throw new Error("bookingInfo cannot be empty");
+      throw new Error('bookingInfo cannot be empty');
     }
 
     this.params.booking_info = Buffer.from(json).toString('base64');
