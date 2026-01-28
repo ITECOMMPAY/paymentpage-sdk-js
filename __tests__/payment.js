@@ -74,6 +74,24 @@ test('Test ECP setters', () => {
   e.baseurl = 'domain.com';
   e.paymentExtraParam = 1;
   e.frameMode = 'popup';
+  e.bookingInfo = {
+    pax: 2,
+    booker: [
+      { first_name: 'hong', last_name: 'ali', email: 'hong_ali@gmail.com' },
+      { first_name: 'pavlova', last_name: 'alexa', email: 'pavlova_alexa@gmail.com' },
+    ],
+    start_date: '31-12-2023',
+    end_date: '12-01-2024',
+    description: 'holiday trip',
+    items: [
+      { description: 'Arrival', start_date: '31-12-2023', end_date: '01-01-2024' },
+      { description: 'Hotel Reservation', start_date: '01-01-2024', end_date: '12-01-2024' },
+      { description: 'Departure', start_date: '12-01-2024', end_date: '12-01-2024' },
+    ],
+    total: 500000,
+    reference: 'some_string',
+    id: 'yduih123tyi3uw2hf',
+  };
 
   const obj = {
     account_token: 1,
@@ -130,6 +148,7 @@ test('Test ECP setters', () => {
     target_element: 'pay_button_id',
     terminal_id: '54',
     frame_mode: 'popup',
+    booking_info: 'eyJwYXgiOjIsImJvb2tlciI6W3siZmlyc3RfbmFtZSI6ImhvbmciLCJsYXN0X25hbWUiOiJhbGkiLCJlbWFpbCI6ImhvbmdfYWxpQGdtYWlsLmNvbSJ9LHsiZmlyc3RfbmFtZSI6InBhdmxvdmEiLCJsYXN0X25hbWUiOiJhbGV4YSIsImVtYWlsIjoicGF2bG92YV9hbGV4YUBnbWFpbC5jb20ifV0sInN0YXJ0X2RhdGUiOiIzMS0xMi0yMDIzIiwiZW5kX2RhdGUiOiIxMi0wMS0yMDI0IiwiZGVzY3JpcHRpb24iOiJob2xpZGF5IHRyaXAiLCJpdGVtcyI6W3siZGVzY3JpcHRpb24iOiJBcnJpdmFsIiwic3RhcnRfZGF0ZSI6IjMxLTEyLTIwMjMiLCJlbmRfZGF0ZSI6IjAxLTAxLTIwMjQifSx7ImRlc2NyaXB0aW9uIjoiSG90ZWwgUmVzZXJ2YXRpb24iLCJzdGFydF9kYXRlIjoiMDEtMDEtMjAyNCIsImVuZF9kYXRlIjoiMTItMDEtMjAyNCJ9LHsiZGVzY3JpcHRpb24iOiJEZXBhcnR1cmUiLCJzdGFydF9kYXRlIjoiMTItMDEtMjAyNCIsImVuZF9kYXRlIjoiMTItMDEtMjAyNCJ9XSwidG90YWwiOjUwMDAwMCwicmVmZXJlbmNlIjoic29tZV9zdHJpbmciLCJpZCI6InlkdWloMTIzdHlpM3V3MmhmIn0=',
   };
   expect(e.params).toEqual(obj);
 });

@@ -55,6 +55,7 @@ const signer = require('./signer');
  * @property {string} baseurl
  * @property {string} paymentExtraParam
  * @property {string} frameMode
+ * @property {string} bookingInfo
  */
 class Payment {
   /**
@@ -139,6 +140,25 @@ class Payment {
    */
   set cashVoucherData(data) {
     this.params.cash_voucher_data = Buffer.from(JSON.stringify(data)).toString('base64');
+  }
+
+  /**
+   * Set booking info
+   *
+   * @param {Object} data
+   */
+  set bookingInfo(data) {
+    if (!data) {
+      throw new Error('bookingInfo is invalid or empty');
+    }
+
+    const json = JSON.stringify(data);
+
+    if (json === '' || json === '{}') {
+      throw new Error('bookingInfo cannot be empty');
+    }
+
+    this.params.booking_info = Buffer.from(json).toString('base64');
   }
 
   set cardOperationType(value) {

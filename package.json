@@ -1,6 +1,6 @@
 {
   "name": "ecommpay",
-  "version": "0.1.7",
+  "version": "1.0.0",
   "description": "Ecommpay Javascript package",
   "main": "index.js",
   "scripts": {
@@ -20,10 +20,16 @@
       "lcov"
     ]
   },
-  "author": {
-    "name": "Zhukov Roman",
-    "email": "r.zhukov@it.ecommpay.com"
-  },
+  "contributors": [
+    {
+      "name": "Zhukov Roman",
+      "email": "r.zhukov@it.ecommpay.com"
+    },
+    {
+      "name": "Aslan Evloev",
+      "email": "a.evloev@it.ecommpay.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ITECOMMPAY/paymentpage-sdk-js"
